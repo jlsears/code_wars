@@ -1,0 +1,56 @@
+using System;
+
+public class Kata
+{
+  public static int Triangular(int n)
+  {
+    int theRows = n;
+    int totalStars = 0;
+    int newRow = n;
+    
+    if (n > 1) {
+    var i = 0;
+    for (i = 0; i < theRows; i++) {
+      totalStars = totalStars + newRow;
+      newRow = newRow - 1;
+    }    
+      return totalStars;
+    }
+    else {
+      return 0;
+    }
+  }
+}
+
+
+// TEST
+
+using System;
+using NUnit.Framework;
+
+[TestFixture]
+public class TriangularTest
+{
+  // You can test here
+  
+  [Test]
+  public static void TriangularTwoShouldBeThree()
+  {
+    Assert.AreEqual(3, Kata.Triangular(2));
+  }
+  
+  [Test]
+  public static void TriangularFourShouldBeTen()
+  {
+    Assert.AreEqual(10, Kata.Triangular(4));
+  }
+}
+
+
+Triangular numbers are so called because of the equilateral triangular shape that they occupy when laid out as dots. i.e.
+
+1st (1)   2nd (3)    3rd (6)
+*          **        ***
+           *         **
+                     *
+                     

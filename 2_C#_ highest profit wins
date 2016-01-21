@@ -1,0 +1,36 @@
+using System;
+
+public class MinMax 
+{
+    public static int[] minMax(int[] lst) 
+    {
+        // your code
+        Array.Sort(lst);
+        int var1 = lst[0];
+        
+        var findMax = lst.Length -1;
+        var findMax2 = lst[findMax];
+        
+        int[] resultList = {var1, findMax2};
+        
+        return resultList;
+    }
+}
+
+
+// TEST
+
+using System;
+using System.Linq;
+using NUnit.Framework;
+
+[TestFixture]
+public class MinMaxTests {
+
+[Test]
+    public static void BasicTest() {
+          Assert.AreEqual(new int[] {-1, 20}, MinMax.minMax(new int[] {1, 2, 5, -1, 12, 20}));
+          Assert.AreEqual(new int[] {1, 5}, MinMax.minMax(new int[] {1, 2, 3, 4, 5}));
+          Assert.AreEqual(new int[] {-3, 5}, MinMax.minMax(new int[] {1, 2, -3,  4,  5}));
+    }
+}

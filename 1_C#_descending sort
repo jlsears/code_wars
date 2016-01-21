@@ -1,0 +1,17 @@
+using System;
+
+public static class Kata
+{
+  public static int DescendingOrder(int num)
+  {
+    string step1 = num.ToString();
+    char [] step2 = step1.ToCharArray();
+    
+    Array.Sort(step2);
+    Array.Reverse(step2);
+    
+    string step3 = new string(step2);    
+    int step4 = Convert.ToInt32(step3); 
+    return step4;
+  }
+}
