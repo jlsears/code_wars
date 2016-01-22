@@ -1,0 +1,26 @@
+function isPalindrome(str) {
+  if(str == null) { 
+    return false; 
+  } 
+  else {
+    var form1 = str.replace(/[^A-Za-z0-9]/g,'');
+    var form2 = form1.split("").reverse().join("");
+  
+    var form1B = form1.toLowerCase();
+    var form2B = form2.toLowerCase();
+  
+   if(form1B === form2B) {
+     return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+
+// TESTS
+
+Test.assertEquals(isPalindrome(null), false);
+Test.assertEquals(isPalindrome("race car"), true);
+Test.assertEquals(isPalindrome("Amor, Roma"), true);
+Test.assertEquals(isPalindrome("123521"), false);
