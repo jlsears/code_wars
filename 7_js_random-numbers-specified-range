@@ -1,0 +1,31 @@
+function dice(minimum, maximum){
+  var result = Math.round(Math.random() * (maximum - minimum + 1)) + minimum;
+  return result;
+}
+
+// TESTS
+
+for( var i=0;i<5; i++ ){
+  var d = dice(1,6);
+  Test.expect(d>=1 && d<=6);
+}
+
+for( var i=0;i<3; i++ ){
+  var d = dice(100,200);
+  Test.expect(d>99);
+  Test.expect(d<201);
+}
+
+for( var i=0; i<5; i++ ){
+  Test.expect(dice(0,100)!=dice(0,100))
+}
+
+var count = {}, d;
+for( var i=0; i<99; i++ ){
+  d = dice(2,4);
+  count[d] = count[d]+1||1;
+}
+console.log(JSON.stringify(count))
+Test.expect(count[2]>0);
+Test.expect(count[3]>0);
+Test.expect(count[4]>0);
