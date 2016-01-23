@@ -1,0 +1,24 @@
+function sevenAte9(str){
+  var str = str;
+  var i;
+  var step1;
+  var step2;
+  
+  for(i=1; i < str.length-1; i++) {
+    if(str[i] == 9) {
+      if(str[i-1] == 7 && str[i+1] == 7) {
+        var step1 = str.slice(0, i);
+        var step2 = str.slice(i+1);
+        str = step1 + step2;
+        i = i-1;
+      }
+    }
+  }
+  return str;
+}
+
+// TESTS
+
+Test.assertEquals(sevenAte9('165561786121789797'),'16556178612178977');
+Test.assertEquals(sevenAte9('797'),'77');
+Test.assertEquals(sevenAte9('7979797'),'7777');
