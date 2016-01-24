@@ -1,0 +1,4 @@
+function dice(minimum, maximum){
+  var result = Math.round(Math.random() * (maximum - minimum + 1)) + minimum;
+  return result;
+}
