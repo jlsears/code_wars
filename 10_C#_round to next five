@@ -1,0 +1,10 @@
+using System;
+
+public class Kata
+{
+  public static int RoundToNext5(int n)
+  {
+    int roundedNumber = Convert.ToInt32(Math.Ceiling(n / 5.0)) * 5;
+    return roundedNumber;
+  }
+}
