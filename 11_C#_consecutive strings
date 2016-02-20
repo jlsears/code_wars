@@ -1,0 +1,35 @@
+using System;
+
+public class LongestConsecutives 
+{
+    
+    public static String LongestConsec(string[] strarr, int k) 
+    {
+        int lengthStrarr = strarr.Length;
+        int currentSet = 0;
+        int longestSet = 0;
+        string displayConcat = "";
+        string finalConcat = "";
+        
+        if (k == 0 || k > lengthStrarr || k < 0 || strarr.Length == 0) {
+          return "";
+        }
+                
+        for (var i = 0; i <= lengthStrarr - k; i++) {          
+          var measurement = i + k;
+          
+          for (var j = i; j < measurement; j++) { 
+            currentSet = currentSet + strarr[j].Length;
+            displayConcat = displayConcat + strarr[j];
+          }
+          
+          if (currentSet > longestSet) {
+            longestSet = currentSet;
+            finalConcat = displayConcat;
+          }
+          displayConcat = "";
+          currentSet = 0;
+        }
+        return finalConcat;
+    }
+}
