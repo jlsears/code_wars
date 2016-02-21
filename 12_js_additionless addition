@@ -1,0 +1,10 @@
+
+function add (x, y) {
+	
+  var firstArray = new Array(x);
+  var secondArray = new Array(y);
+  
+  var finalArray = firstArray.concat(secondArray);
+  return finalArray.length;
+  
+}
