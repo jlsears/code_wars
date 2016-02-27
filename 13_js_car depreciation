@@ -1,0 +1,30 @@
+function car(p,n){
+  var yearOne = p * .8;
+  var yearTwo = yearOne * .8;
+  var otherYear = yearTwo;
+  
+  if(n == 1) {
+    
+    return yearOne.toFixed(2);
+    
+  }
+  
+  if(n == 2) {
+  
+    return yearTwo.toFixed(2);
+    
+  }
+  
+  else {
+  
+    var i;
+    
+    for(i = 0; i < n-2; i++) {
+    
+      otherYear = otherYear * .9;   
+      
+    }
+    return otherYear.toFixed(2);
+  }
+  
+}
