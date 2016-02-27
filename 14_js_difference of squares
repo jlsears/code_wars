@@ -1,0 +1,27 @@
+function differenceOfSquares(x){
+  
+  var firstSum = 0;
+  var secSum = 0;
+  var i;
+  var j;
+  
+  for(i = 1; i <= x; i++) {
+    firstSum = (i * i) + firstSum;
+  }
+  
+  for(j = 1; j <= x; j++) {
+    secSum = secSum + j;
+  }
+  
+  secSum = secSum * secSum;
+  
+  return secSum - firstSum;
+  
+}
+
+
+// TESTS
+
+Test.assertEquals(differenceOfSquares(5), 170)
+Test.assertEquals(differenceOfSquares(10), 2640)
+Test.assertEquals(differenceOfSquares(100), 25164150)
