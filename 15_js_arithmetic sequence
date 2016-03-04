@@ -1,0 +1,33 @@
+function ArithmeticSequenceSum(a, r, n) {
+  
+  var i;
+  var counter = 0;
+  var nextCounter = r;
+  var watcher = 0;
+  
+  while(watcher < n-1) {
+  
+    counter = counter + a + nextCounter;
+    nextCounter = nextCounter + r;
+    watcher = watcher + 1;
+  }
+  return counter + a;
+}
+
+// TESTS
+
+Test.assertEquals(ArithmeticSequenceSum(3, 2, 20), 440);
+Test.assertEquals(ArithmeticSequenceSum(2, 2, 10), 110);
+Test.assertEquals(ArithmeticSequenceSum(1, -2, 10), -80);
+
+// INSTRUCTIONS
+
+In Your class You have started lessons about Arithmetic Progression. Because You are also a programmer, You have decided to write a function arithmetic_sequence_sum(a, r, n), that will print SUM of the first n elementh of the sequence with the given constant r and first elementh a
+
+For example arithmetic_sequence_sum(2, 3, 5)
+
+Should return: 40
+becaouse:
+2+(2+3)+(2+3+3)+(2+3+3+3)+(2+3+3+3+3)
+=2+5+8+11+14
+=40
