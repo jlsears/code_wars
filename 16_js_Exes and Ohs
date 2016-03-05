@@ -1,0 +1,23 @@
+function XO(str) {
+    
+    var str2 = str.toLowerCase();
+    var theX = 0;
+    var theO = 0;
+    var i;
+    
+    for(var i = 0; i <= str2.length; i++) {
+    if (str2[i] == 'x') { theX = theX + 1; }
+    if (str2[i] == 'o') { theO = theO + 1; }
+    }
+    
+    if (theX === theO) { return true; }
+    else { return false; }
+}
+
+// TESTS
+
+Test.assertEquals(XO('xo'),true);
+Test.assertEquals(XO("xxOo"),true);
+Test.assertEquals(XO("xxxm"),false);
+Test.assertEquals(XO("Oo"),false);
+Test.assertEquals(XO("ooom"),false);
