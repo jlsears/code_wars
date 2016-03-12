@@ -1,13 +1,14 @@
 using System;
 using System.Linq;
+using System.Collections;
 
 public class Kata
 {
   public static string TicTacToeWinner(string board)
   {
     
-    string [] theX = new string[8];
-    string [] theO = new string[8];
+    ArrayList theX = new ArrayList();
+    ArrayList theO = new ArrayList();
     bool moreX = false;
     bool moreO = false;
     var theSpots = new[] {"1a", "1b", "1c", "pipe", "2a", "2b", "2c", "pipe2", "3a", "3b", "3c"};
@@ -16,21 +17,21 @@ public class Kata
     int k = 0;
     
     for(i = 0; i <= board.Length; i++) {
-      if(board[i] == 'x') { Array.add(theX, theSpots[i]); }
-      if(board[i] == 'o') { Array.add(theO, theSpots[i]); }    
+      if(board[i] == 'x') { theX[i] = theSpots[i]; }
+      if(board[i] == 'o') { theO[i] = theSpots[i]; }    
     }
     
-    var xArray = array.theX(x => x.ToCharArray());
-    var oArray = array.theO(x => x.ToCharArray());
-    Array.sort(xArray);
-    Array.sort(oArray);
+    var xArray = theX.SelectMany(x => x.ToCharArray());
+    var oArray = theO.SelectMany(x => x.ToCharArray());
+    Array.Sort(xArray);
+    Array.Sort(oArray);
     
     for(j = 0; j < xArray.Count-2; j++) {
-      if(xArray[j] == xArray[j+1] == xArray[j+2] { moreX = true; })
+      if(xArray[j] == xArray[j+1] == xArray[j+2]) { moreX = true; }
     }
     
     for(k = 0; k < oArray.Count-2; j++) {
-      if(oArray[k] == oArray[k+1] == oArray[k+2] { moreO = true; })
+      if(oArray[k] == oArray[k+1] == oArray[k+2]) { moreO = true; }
     }
     
     if(moreX && moreO) { return "Game is a tie"; }
