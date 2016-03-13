@@ -17,21 +17,24 @@ public class Kata
     int k = 0;
     
     for(i = 0; i <= board.Length; i++) {
-      if(board[i] == 'x') { theX[i] = theSpots[i]; }
-      if(board[i] == 'o') { theO[i] = theSpots[i]; }    
+      if(board[i] == 'x') { theX.Add(theSpots[i]); }
+      if(board[i] == 'o') { theO.Add(theSpots[i]); }    
     }
     
-    var xArray = theX.SelectMany(x => x.ToCharArray());
-    var oArray = theO.SelectMany(x => x.ToCharArray());
+    char[] xArray = theX.ToArray(typeof(char)) as char[];
+    char[] oArray = theO.ToArray(typeof(char)) as char[];
+    
+    //var xArray = theX.SelectMany(x => x.ToCharArray());
+    //var oArray = theO.SelectMany(x => x.ToCharArray());
     Array.Sort(xArray);
     Array.Sort(oArray);
     
-    for(j = 0; j < xArray.Count-2; j++) {
-      if(xArray[j] == xArray[j+1] == xArray[j+2]) { moreX = true; }
+    for(j = 0; j < xArray.Length-2; j++) {
+      if(xArray[j] == xArray[j+1] && xArray[j+1] == xArray[j+2]) { moreX = true; }
     }
     
-    for(k = 0; k < oArray.Count-2; j++) {
-      if(oArray[k] == oArray[k+1] == oArray[k+2]) { moreO = true; }
+    for(k = 0; k < oArray.Length-2; j++) {
+      if(oArray[k] == oArray[k+1] && oArray[k+1] == oArray[k+2]) { moreO = true; }
     }
     
     if(moreX && moreO) { return "Game is a tie"; }
