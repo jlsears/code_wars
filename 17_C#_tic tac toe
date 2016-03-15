@@ -37,8 +37,8 @@ public class Kata
     char[] oArray = Array.ConvertAll(oArray1, new Converter<string, char>(StringToChar));
     
    // SORTING CHARS IN ARRAY
-    xArray.Sort();
-    oArray.Sort();
+    Array.Sort(xArray);
+    Array.Sort(oArray);
     
     for(j = 0; j < xArray.Length-2; j++) {
       if(xArray[j] == xArray[j+1] && xArray[j+1] == xArray[j+2]) { moreX = true; }
