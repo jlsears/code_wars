@@ -1,6 +1,8 @@
 using System;
 using System.Linq;
 using System.Collections;
+using System.Collections.Generic;
+using System.Drawing;
 
 public class Kata
 {
@@ -21,42 +23,22 @@ public class Kata
       if(board[i] == 'o') { theO.Add(theSpots[i]); }    
     }
     
-    //String[] myArr = (String[]) myAL.ToArray( typeof( string ) );
+    String[] xArray1 = new String[theX.Count];
+    String[] oArray1 = new String[theO.Count];
     
-    string[] xArray1 = (string[]) theX.ToArray( typeof( string ) );
-    string[] oArray1 = (string[]) theO.ToArray( typeof( string ) );
-    
-    
-    // Converting ArrayList to string array
-    // Making a System.Collections.Generic.IEnumberable
-    //string[] xArray1 = theX.ToArray(typeof(string)) as string[];
-    //string[] oArray1 = theO.ToArray(typeof(string)) as string[];
-    
-    // var charArray = array.SelectMany(x => x.ToCharArray());
-    // char[] C = string.Join(string.Empty, S).ToCharArray();
-    
-    // Explicit cast or conversion message
-    //char[] xArray = xArray1.SelectMany(x => x.ToCharArray());
-    //char[] oArray = oArray1.SelectMany(y => y.ToCharArray());
-    
-    // Took too long to complete
-    //char[] xArray = string.Join(string.Empty, xArray1).ToCharArray();
-    //char[] oArray = string.Join(string.Empty, oArray1).ToCharArray();  
-    
-    // Can't be used with the type arguments
-    //IEnumerable<char> xArray = xArray1.SelectMany(x => x.ToCharArray());
-    //IEnumerable<char> oArray = oArray1.SelectMany(x => x.ToCharArray());
+    theX.CopyTo(xArray1);
+    theO.CopyTo(oArray1);    
     
     // explicit conversion or missing cast
-    char[] xArray = xArray1.SelectMany(x => x.ToCharArray());
-    char[] oArray = oArray1.SelectMany(x => x.ToCharArray());
+    //char[] xArray = xArray1.ToCharArray();
+    //char[] oArray = oArray1.ToCharArray();
     
+    char[] xArray = Array.ConvertAll(xArray1, new Converter<string, char>(StringToChar));
+    char[] oArray = Array.ConvertAll(oArray1, new Converter<string, char>(StringToChar));
     
    // SORTING CHARS IN ARRAY
-   // best overload method has some invalid arguments
-   // cannot convert `System.Collections.Generic.IEnumerable' expression to type `System.Array'
-    Array.Sort(xArray);
-    Array.Sort(oArray);
+    xArray.Sort();
+    oArray.Sort();
     
     for(j = 0; j < xArray.Length-2; j++) {
       if(xArray[j] == xArray[j+1] && xArray[j+1] == xArray[j+2]) { moreX = true; }
