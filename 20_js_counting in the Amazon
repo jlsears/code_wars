@@ -1,0 +1,31 @@
+function countArara(n) {
+    
+    if(n == 1) { return "anane"; }
+   
+   else {
+   
+    var anane = "anane";
+    var adak = "adak";
+    var finalString = " ";
+    
+    var base = Math.floor(n/2);
+    var base1 = n - (base * 2);
+    
+    for(i = 0; i < base; i++) {
+      
+      finalString = finalString + adak + " ";
+    }
+   
+    for(j = 0; j < base1; j++) {
+    
+      finalString = finalString + anane + " ";
+    }   
+  }
+  return finalString.trim();
+}
+
+// TESTS
+
+Test.assertEquals(countArara(1),"anane");
+Test.assertEquals(countArara(3),"adak anane");
+Test.assertEquals(countArara(8),"adak adak adak adak");
