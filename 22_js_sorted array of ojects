@@ -1,0 +1,26 @@
+function sortList(sortBy, list) {
+  
+  return list.sort(function(a, b) {  
+    return b[sortBy] - a[sortBy]; 
+  });
+};
+
+// TEST
+
+var theirArray = [
+  {a: 1, b: 3},
+  {a: 3, b: 2},
+  {a: 2, b: 40},
+  {a: 4, b: 12}
+];
+
+var actual = sortList("a", theirArray);
+
+var expected = [
+  {a: 4, b: 12},
+  {a: 3, b: 2},
+  {a: 2, b: 40},
+  {a: 1, b: 3}
+];
+
+Test.assertEquals(actual, expected);
