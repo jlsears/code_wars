@@ -1,0 +1,16 @@
+function toWeirdCase(string){
+  
+  var weirdArray = [];
+  var i;
+  
+  for(i = 0; i < string.length; i+=2) {
+  
+  if(string[i] == " ") { weirdArray.push(" "); i++; }
+    
+    weirdArray.push(string[i].toUpperCase());
+    
+    if(string[i+1]) { weirdArray.push(string[i+1].toLowerCase());  }
+  }
+  
+  return weirdArray.toString().replace(/,/g, "");
+}
