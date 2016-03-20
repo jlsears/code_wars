@@ -26,20 +26,44 @@ public class Kata
     char[] xArray = new char[theX.Count];
     char[] oArray = new char[theO.Count];
     
-    theX.CopyTo(xArray);
-    theO.CopyTo(oArray);    
+    for(i = 0; i < theX.Count; i++) {
+      xArray[i] = Convert.ToChar(theX[i]);
+    }
+    //Console.WriteLine(xArray);    
 
+    for(j = 0; j < theO.Count; j++) {
+      oArray[j] = Convert.ToChar(theO[j]);
+    }
+    //Console.WriteLine(oArray);    
+    
+    // LOOKING FOR DIAGONAL
+    
+    string xDiag = string.Join("", xArray);
+    bool containX = xDiag.Contains("1a2b3c") || xDiag.Contains("1c2b3a");
+    if(containX == true) { moreX = true; }
+    
+    string oDiag = string.Join("", oArray);
+    bool containO = oDiag.Contains("1a2b3c") || oDiag.Contains("1c2b3a");
+    if(containO == true) { moreO = true; }
+    
+    Console.WriteLine("After diagonal check, containX is " + containX + " and containO is " + containO);
     
    // SORTING CHARS IN ARRAY
     Array.Sort(xArray);
+    //Console.WriteLine("Now sorting: " + xArray);
     Array.Sort(oArray);
     
     for(j = 0; j < xArray.Length-2; j++) {
-      if(xArray[j] == xArray[j+1] && xArray[j+1] == xArray[j+2]) { moreX = true; }
+      if(xArray[j] == xArray[j+1] && xArray[j+1] == xArray[j+2]) { 
+      Console.WriteLine("Getting through first of final loop pair");
+      moreX = true; 
+      Console.WriteLine("Value of moreX at the end is: " + moreX);}
     }
     
-    for(k = 0; k < oArray.Length-2; j++) {
-      if(oArray[k] == oArray[k+1] && oArray[k+1] == oArray[k+2]) { moreO = true; }
+    for(k = 0; k < oArray.Length-2; k++) {
+      if(oArray[k] == oArray[k+1] && oArray[k+1] == oArray[k+2]) { 
+      moreO = true;
+      Console.WriteLine("Value of moreO at the end is: " + moreO);}
     }
     
     if(moreX && moreO) { return "Game is a tie"; }
