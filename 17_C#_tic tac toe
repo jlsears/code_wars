@@ -55,11 +55,13 @@ public class Kata
     for(k = 0; k < xArray.Length-2; k++) {
       if(xArray[k] == xArray[k+1] && xArray[k+1] == xArray[k+2]) { 
       moreX = true; 
+        }
     }
     
     for(l = 0; l < oArray.Length-2; l++) {
       if(oArray[l] == oArray[l+1] && oArray[l+1] == oArray[l+2]) { 
       moreO = true;
+        }
     }
     
     // RELAYING FINAL RESULT
