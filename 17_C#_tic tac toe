@@ -37,8 +37,7 @@ public class Kata
       oArray[j] = Convert.ToChar(theO[j]);
     }
     
-    // LOOKING FOR DIAGONAL
-    
+    // LOOKING FOR DIAGONAL 
     string xDiag = string.Join("", xArray);
     bool containX = xDiag.Contains("1a2b3c") || xDiag.Contains("1c2b3a");
     if(containX == true) { moreX = true; }
