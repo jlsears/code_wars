@@ -25,6 +25,7 @@ public class Kata
       if(board[t] == 'o') { theO.Add(theSpots[t,0]); theO.Add(theSpots[t,1]); }    
     }
     
+    // CREATING NEW CHAR ARRAYS THE SIZE OF THEIR CORRESPONDING ARRAYLISTS
     char[] xArray = new char[theX.Count];
     char[] oArray = new char[theO.Count];
     
