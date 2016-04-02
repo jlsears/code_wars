@@ -16,10 +16,8 @@ function car(p,n){
   }
   
   else {
-  
-    var i;
     
-    for(i = 0; i < n-2; i++) {
+    for(var i = 0; i < n-2; i++) {
     
       otherYear = otherYear * .9;   
       
