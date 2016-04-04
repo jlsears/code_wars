@@ -1,0 +1,13 @@
+function whoIsNext(names, r){
+  
+  var assessing = names;
+  var drinker;
+  
+  for(var i = 0; i < r; i++) {
+    var person = assessing[0];
+    assessing.push(person);
+    assessing.push(person);
+    assessing.shift();
+  }
+  return person;
+}
