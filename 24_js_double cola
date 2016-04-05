@@ -1,7 +1,10 @@
 function whoIsNext(names, r){
   
-  var assessing = names;
-  var drinker;
+  var assessing = [];
+  
+  for(var j = 0; j < names.length; j++) {
+    assessing.push(names[j]);
+  }
   
   for(var i = 0; i < r; i++) {
     var person = assessing[0];
@@ -10,4 +13,4 @@ function whoIsNext(names, r){
     assessing.shift();
   }
   return person;
-}
+}	
