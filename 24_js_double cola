@@ -1,16 +1,43 @@
 function whoIsNext(names, r){
   
   var assessing = [];
+  var scouting = [];
+  var foundIt;
   
   for(var j = 0; j < names.length; j++) {
     assessing.push(names[j]);
+    scouting.push(names[j]);
   }
   
-  for(var i = 0; i < r; i++) {
-    var person = assessing[0];
-    assessing.push(person);
-    assessing.push(person);
-    assessing.shift();
+  var amtDoubling = 5;
+  var rangeTop = amtDoubling;
+  var multCounter = 1;
+  
+  for(var i = amtDoubling; i < r; i++) {
+    
+    if(r <= rangeTop) {
+      
+      var rangeLow = rangeTop - amtDoubling;
+      
+      for(var k = 0; k < assessing; k++) {
+        
+        for(var l = 0; l <= multCounter; l++) {
+          scouting.push(assessing[k]);
+        }
+      }
+      for(var m = rangeLow; m <=r; m++) {
+        if(scouting[m] == r) {
+          return foundIt = scouting[m];
+        }
+      }
+    }
+    
+    else {    
+      amtDoubling*=2;
+      rangeTop = rangeTop + amtDoubling;
+      multCounter = multCounter * 2;
+    }
   }
-  return person;
+  
+  return something;
 }	
