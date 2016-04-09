@@ -2,6 +2,7 @@ function whoIsNext(names, r){
   var assessing = [];
   var scouting = [];
   var foundIt;
+  console.log("the value of r here is: " + r);
   
   for(var j = 0; j < names.length; j++) {
     assessing.push(names[j]);
@@ -21,34 +22,35 @@ function whoIsNext(names, r){
       return assessing[r-1];
     }
     
-    if(newR <= rangeTop) {
+    if(newR < rangeTop) {
       
-      var rangeLow = rangeTop - amtDoubling;
-      console.log("Hitting rangeLow declaration");
+      var rangeLow = (rangeTop - amtDoubling) + 1;
+      console.log("Hitting rangeLow declaration: " + rangeLow);
+      console.log("rangeTop at this point: " + rangeTop);
       
       // iterating through each name in assessing
-      for(var k = 0; k <= assessing; k++) {
-      console.log("at least hitting first assessing loop");
+      for(var k = 0; k <= assessing.length-1; k++) {
+      //console.log("at least hitting first assessing loop");
       
         // for each name in assessing, push it into scouting the number of times reflected in multCounter
-        for(var l = 0; l <= multCounter; l++) {
+        for(var l = 0; l < multCounter; l++) {
           scouting.push(assessing[k]);
-          cosole.log("pushing name into scouting: " + assessing[k]);
+          console.log("pushing name into scouting: " + assessing[k]);
         }
       }
       // looking for the name at index position r in this block
       for(var m = rangeLow; m <=r; m++) {
-        if(scouting[m] == r) {
+        if(m == r) {
           console.log("the value of foundIt: " + foundIt);
           return foundIt = scouting[m];
-        }
+          }
+        }  
       }
-    }
     
     else {    
-      amtDoubling*=2;
+      amtDoubling = amtDoubling * 2;
       rangeTop = rangeTop + amtDoubling;
       multCounter = multCounter * 2;
     }
   }
-}	
+} 
