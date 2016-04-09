@@ -16,6 +16,11 @@ function whoIsNext(names, r){
   for(var i = 0; i <= newR; i++) {
     console.log("amtDoubling here is: " + amtDoubling);
     
+    if(r < assessing.length) {
+    
+      return assessing[r-1];
+    }
+    
     if(newR <= rangeTop) {
       
       var rangeLow = rangeTop - amtDoubling;
