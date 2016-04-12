@@ -31,20 +31,27 @@ function whoIsNext(names, r){
       console.log("Hitting rangeLow declaration: " + rangeLow);
       console.log("rangeTop at this point: " + rangeTop);
 
-      var miniTop = rangeLow + (amtDoubling-1);
+      var miniTop = rangeLow + (multCounter-1);
       var miniCounter = 1;
 
-      // this is the range of the person we're looking to return
-      if(r < miniTop) {
+      for(var k = 0; k < assessing.length; k++) {
 
-        return assessing[miniCounter-1];
-      }
+        // this is the range of the person we're looking to return
+        if(r < miniTop) {
 
-      else {
+          console.log("the winning miniTop: " + miniTop + " and miniCounter: " + miniCounter);
+          console.log("winning multCounter: " + multCounter);
+          return assessing[miniCounter-1];
+        }
 
-        miniTop = miniTop + amtDoubling;
-        miniCounter = miniCounter + 1;
-        } 
+        else {
+
+          miniTop = miniTop + multCounter;
+          miniCounter = miniCounter + 1;
+          console.log("miniTop is: " + miniTop + " And miniCounter is: " + miniCounter);
+          console.log("multCounter here: " + multCounter);
+          }
+        }
       }
     
     else {    
