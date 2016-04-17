@@ -3,13 +3,14 @@ function whoIsNext(names, r){
   var scouting = [];
   var foundIt;
   console.log("the value of r here is: " + r);
+  console.log("the names being presented are: " + names);
   
   for(var j = 0; j < names.length; j++) {
     assessing.push(names[j]);
     scouting.push(names[j]);
   }
   
-  var amtDoubling = 5;
+  var amtDoubling = assessing.length;
   var rangeTop = amtDoubling;
   var multCounter = 1;
   var prevMultCounter = 1;
