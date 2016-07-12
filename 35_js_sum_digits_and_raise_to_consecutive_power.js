@@ -19,12 +19,6 @@ function sumDigPow(a, b) {
       if(currentSum == i) { answerArray.push(currentSum); }
     }
   }
-  else {
-  for(var i = a; i < b-a; i++) {
-    
-    answerArray.push(i);
-    }  
-  }
   return answerArray;
 }
 
