@@ -17,25 +17,25 @@ longestPalindrome=function(s){
     
       if(s1[i] == s2[j]) { // if a match is found in that loop then handyLoop function will be called
 
-        var pseudoS1 = s1.slice(i);
+      var pseudoS1 = s1.slice(i);
         
-        function handyLoop() { // loop through the rest of both arrays and see if they continue to match
+      function handyLoop() { // loop through the rest of both arrays and see if they continue to match
 
-          for(var k = 0; k <pseudoS1.length; k++) {
-          
-            if(pseudoS1[k] == s2[j]) {
+        for(var k = 0; k <pseudoS1.length; k++) {
+        
+          if(pseudoS1[k] == s2[j]) {
 
-              currentCount = currentCount + 1;
-              j++;
-              handyLoop();
-            }
-            else {
-              break;
-            }
-          } // end k for loop
-        } // end handyLoop
+            currentCount = currentCount + 1;
+            j++;
+            handyLoop();
+          }
+          else {
+            break;
+          }
+        } // end k for loop
+      } // end handyLoop
 
-        handyLoop();
+      handyLoop();
        
       } // end if
             
